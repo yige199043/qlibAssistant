@@ -38,5 +38,15 @@ jobs:
         run: |
           cd ./roll && python ./roll.py model selection
           echo ""
+          echo "========== 查找结果文件 =========="
+          find ~/.qlibAssistant -name "*.csv" 2>/dev/null || echo "~/.qlibAssistant 下没有 csv 文件"
+          find . -name "*.csv" 2>/dev/null | head -20
+          echo ""
+          echo "========== 当前目录内容 =========="
+          ls -la
+          echo ""
+          echo "========== roll 目录内容 =========="
+          ls -la ./roll/
+          echo ""
           echo "========== 选股结果 =========="
           cat ~/.qlibAssistant/analysis/*.csv 2>/dev/null || echo "结果文件不存在"
